@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,12 +20,12 @@ class BackController extends Controller
 
     public function store(Request $request)
     {
-        Storage::put('public/img', $request->file('name'));
+        Storage::put('public/img', $request->file('src'));
 
         $store = new File;
-        $store->name = $request->name;
+        $store->src = $request->src;
         $store->save();
 
-        return view('backoffice.admin');
+        return view('backoffice.admin', compact('store'));
     }
 }

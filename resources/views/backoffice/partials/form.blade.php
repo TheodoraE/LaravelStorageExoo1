@@ -15,7 +15,7 @@
 
     <form action="/store-fichier" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="name" id="">
+        <input type="file" name="src" id="">
         <button type="submit" class="btn btn-success">Ajouter</button>
     </form>
 </div>
