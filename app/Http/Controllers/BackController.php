@@ -10,7 +10,8 @@ class BackController extends Controller
 {
     public function index()
     {
-        return view('backoffice.admin');
+        $store = File::all();
+        return view('backoffice.admin', compact('store'));
     }
 
     public function create()
@@ -20,12 +21,15 @@ class BackController extends Controller
 
     public function store(Request $request)
     {
-        Storage::put('public/img', $request->file('src'));
-
+        // dd($request->request);
         $store = new File;
-        $store->src = $request->src;
+        $store->src = $request->file('src')->hashName();
         $store->save();
 
-        return view('backoffice.admin', compact('store'));
+        // $request->file('src')->storePublicly('storage/img/', 'public');
+
+        Storage::put('public/img', $request->file('src'));
+        
+        return redirect('/backoffice');
     }
 }

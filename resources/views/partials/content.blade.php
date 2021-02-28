@@ -3,7 +3,11 @@
 
     <div class="my-5">
         <h3>Les images</h3>
-        <img src="{{asset('/storage/img/UNicyiVscxn3K0LH0oNJTyjNz2kBn1Q3AGXKZOtK.jpg')}}" alt="">
+
+        @foreach ($store as $item)
+            <img src="{{asset('storage/img/'.$item->src)}}" alt="">
+            
+        @endforeach
     </div>
 
     <div class="my-5">
