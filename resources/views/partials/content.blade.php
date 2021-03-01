@@ -15,8 +15,8 @@
         <h3>Les fichiers</h3>
 
         @foreach ($store as $item)
-            @if (Str::after($item->src, '.') =='pdf' || Str::after($item->src, '.') =='doc')
-                <p>{{$item->src}}</p>
+        @if (Str::after($item->src, '.') !='jpeg' && Str::after($item->src, '.') !='png' && Str::after($item->src, '.') !='jpg')
+        <p>{{$item->src}}</p>
             @endif            
         @endforeach
     </div>

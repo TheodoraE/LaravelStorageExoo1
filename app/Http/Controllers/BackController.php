@@ -32,4 +32,12 @@ class BackController extends Controller
         
         return redirect('/backoffice');
     }
+
+    public function destroy($id)
+    {
+        $destroy = File::find($id);
+        Storage::delete('public/img/'.$destroy->src);
+        $destroy->delete();
+        return redirect('/backoffice');
+    }
 }

@@ -23,3 +23,5 @@ Route::get('/', [FrontController::class, 'index']);
 Route::get('/backoffice', [BackController::class, 'index']);
 Route::get('/fichier', [BackController::class, 'create']);
 Route::post('/store-fichier', [BackController::class, 'store']);
+
+Route::post('/delete-fichier/{id}', [BackController::class, 'destroy']);
