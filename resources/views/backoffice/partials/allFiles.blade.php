@@ -3,10 +3,12 @@
 
     <div>
         @foreach ($store as $item)
-            <img src="{{asset('storage/img/'.$item->src)}}" alt="">
+            @if (Str::after($item->src, '.') =='jpeg' || Str::after($item->src, '.') =='png' || Str::after($item->src, '.') =='jpg')
+                <img height="100px" src="{{asset('storage/img/'.$item->src)}}" alt="">
+            @else
+                <p>{{$item->src}}</p>
+            @endif
             
         @endforeach
-        {{-- <img src="{{asset('/storage/img/wlss4Y7jZU71DSeYfpYzIBPuqPcqL16P4kHEnnyJ.pdf')}}" alt=""> --}}
-        {{-- {{dd($store)}} --}}
     </div>
 </div>
