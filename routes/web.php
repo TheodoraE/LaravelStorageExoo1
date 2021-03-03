@@ -26,3 +26,4 @@ Route::post('/store-fichier', [BackController::class, 'store']);
 Route::get('/edit-fichier/{id}', [BackController::class, 'edit']);
 Route::post('/update-fichier/{id}', [BackController::class, 'update']);
 Route::post('/delete-fichier/{id}', [BackController::class, 'destroy']);
+Route::get('/download-fichier/{id}', [BackController::class, 'download']);

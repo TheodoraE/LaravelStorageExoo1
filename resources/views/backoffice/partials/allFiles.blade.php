@@ -8,6 +8,8 @@
                 <th scope="col">#</th>
                 <th scope="col">File</th>
                 <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +25,9 @@
                         </td>
                         <td>
                             <a class="btn btn-warning" href="/edit-fichier/{{$item->id}}">EDIT</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="/download-fichier/{{$item->id}}">SAVE</a>
                         </td>
                         <td>
                             <form action="/delete-fichier/{{$item->id}}" method="POST">

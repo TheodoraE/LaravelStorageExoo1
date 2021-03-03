@@ -37,7 +37,6 @@ class BackController extends Controller
     {
         $edit = File::find($id);
         return view('backoffice.pages.editForm', compact('edit'));
-
     }
     public function update(Request $request, $id)
     {
@@ -46,6 +45,7 @@ class BackController extends Controller
         $update->src = $request->file('src')->hashName();
         $update->save();
         Storage::put('public/img', $request->file('src'));
+
         return redirect('/backoffice');
     }
 
@@ -55,5 +55,11 @@ class BackController extends Controller
         Storage::delete('public/img/'.$destroy->src);
         $destroy->delete();
         return redirect('/backoffice');
+    }
+
+    public function download($id)
+    {
+        $down = File::find($id);
+        return Storage::download('public/img/'.$down->src);
     }
 }

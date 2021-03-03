@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-5">Ajouter des fichiers</h1>
+        <h1 class="my-5">Update le fichier</h1>
 
         <div>
             @if ($errors->any())
