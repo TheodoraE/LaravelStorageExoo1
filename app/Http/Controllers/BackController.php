@@ -33,6 +33,22 @@ class BackController extends Controller
         return redirect('/backoffice');
     }
 
+    public function edit($id)
+    {
+        $edit = File::find($id);
+        return view('backoffice.pages.editForm', compact('edit'));
+
+    }
+    public function update(Request $request, $id)
+    {
+        $update = File::find($id);
+        Storage::delete('public/img/'.$update->src);
+        $update->src = $request->file('src')->hashName();
+        $update->save();
+        Storage::put('public/img', $request->file('src'));
+        return redirect('/backoffice');
+    }
+
     public function destroy($id)
     {
         $destroy = File::find($id);

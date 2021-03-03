@@ -22,6 +22,9 @@
                             @endif
                         </td>
                         <td>
+                            <a class="btn btn-warning" href="/edit-fichier/{{$item->id}}">EDIT</a>
+                        </td>
+                        <td>
                             <form action="/delete-fichier/{{$item->id}}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">DELETE</button>
